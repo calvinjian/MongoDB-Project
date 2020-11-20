@@ -155,9 +155,7 @@ def main():
 
 
             for i in range(1, 8):
-                if (day - (8 - i) <= 0):
-                    break
-                else:
+                if (day - (8 - i) > 0):
                     date = str(month) + '/' + str(day - (8 - i)) + '/' + str(year)
                     right_tweets = db.count_documents({'publish_date' : {'$regex' : date}, 'account_category': 'RightTroll'})
                     left_tweets = db.count_documents({'publish_date' : {'$regex' : date}, 'account_category': 'LeftTroll'})
